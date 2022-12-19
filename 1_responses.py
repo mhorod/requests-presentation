@@ -1,4 +1,4 @@
-# How to make a simple request using the requests library
+# Basic properties of a Response object
 
 import requests
 

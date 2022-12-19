@@ -44,6 +44,30 @@ def redirections():
     print("Response URL:", response.url)
     print("Redirection history:", response.history)
 
+def headers():
+    # We can add headers to the request using the `headers` keyword argument
+    # For example we can pretend that we're using a different browser
+    headers = {
+        'User-Agent': 'Internet Exploder',
+        'X-My-Header': 'My value',
+    }
+    response = requests.get('https://httpbin.org/get', headers=headers)
+
+    print("Response text:", response.text)
+
+def timeout():
+    # Requests are blocking
+    # To prevent waiting forever for a response, we can set a timeout
+
+    # This server does not respond
+    try:
+        requests.get('http://mhorod.ninja', timeout=2)
+    except requests.exceptions.Timeout:
+        print("Timeout :(")
+
+
 # get_with_params()
-# post_file()
-redirections()
+post_file()
+# redirections()
+# headers()
+# timeout()

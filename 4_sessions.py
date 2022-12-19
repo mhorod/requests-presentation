@@ -2,7 +2,7 @@
 # This way we can interact with websites that require authentication or have other stateful behavior.
 
 import requests
-from satori import *
+from satori_parser import *
 
 
 def get_contests_without_session():
@@ -38,6 +38,10 @@ def get_contests_with_session():
     contests = get_contest_list(response.text)
     print("Contests after logging in:", contest_names(contests))
 
+    # We can see that session stores cookies set by the server
+    # In our case this is some token that allows us to be logged in
+    print("Session cookies:")
+    print(session.cookies.keys())
 
 print("WITHOUT SESSION")
 get_contests_without_session()
