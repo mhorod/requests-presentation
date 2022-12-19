@@ -21,6 +21,12 @@ print("TEXT")
 print(response.text)
 print()
 
+# If response is binary we'll need `content` rather than text
+print("CONTENT")
+print(response.content)
+print()
+
+
 # For responses with JSON content we can call `json` method to get parsed dictionary
 print("JSON")
 print(response.json())
